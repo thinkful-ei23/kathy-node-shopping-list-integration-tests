@@ -48,7 +48,7 @@ describe('Recipes', function() {
 
   it('should add a recipe on POST', function() {
     const newRecipe = {
-        name: 'coffee', ingredients: ['ground coffee', 'hot water']};
+      name: 'coffee', ingredients: ['ground coffee', 'hot water']};
     return chai.request(app)
       .post('/recipes')
       .send(newRecipe)
@@ -82,7 +82,7 @@ describe('Recipes', function() {
 
         return chai.request(app)
           .put(`/recipes/${updateData.id}`)
-          .send(updateData)
+          .send(updateData);
       })
       .then(function(res) {
         res.should.have.status(204);
@@ -99,7 +99,7 @@ describe('Recipes', function() {
       .get('/recipes')
       .then(function(res) {
         return chai.request(app)
-          .delete(`/recipes/${res.body[0].id}`)
+          .delete(`/recipes/${res.body[0].id}`);
       })
       .then(function(res) {
         res.should.have.status(204);
